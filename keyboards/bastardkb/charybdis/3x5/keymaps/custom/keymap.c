@@ -154,10 +154,10 @@ static uint16_t auto_pointer_layer_timer = 0;
 // ^ ~ - = b
 // note(jacob): Added ent and bspc keys for nicer time with numeral layer
 #define LAYOUT_LAYER_NUMERAL                                                                  \
-    _______, _______, KC_LABK, KC_RABK,  _______,  KC_AMPR, KC_1,  KC_2,  KC_3,  KC_EQL, \
-    KC_SCLN, KC_PERC, KC_PLUS, KC_ASTR,  _______,  KC_PIPE,      KC_4,  KC_5,  KC_6,  KC_0, \
-    KC_CIRC, KC_TILD, KC_MINS,  KC_EQL,  _______,   KC_GRV,      KC_7,  KC_8,  KC_9,  KC_CIRC, \
-                       XXXXXXX, _______, XXXXXXX,   KC_ENT, KC_BSPC
+    _______, _______, KC_LABK, KC_RABK,  _______, KC_AMPR, KC_1,  KC_2,  KC_3,  KC_EQL, \
+    KC_SCLN, KC_PERC, KC_PLUS, KC_ASTR,  _______, KC_PIPE, KC_4,  KC_5,  KC_6,  KC_0, \
+    KC_CIRC, KC_TILD, KC_MINS,  KC_EQL,  _______,  KC_GRV, KC_7,  KC_8,  KC_9,  KC_CIRC, \
+                       XXXXXXX, _______, XXXXXXX,  KC_ENT, KC_BSPC
 
 /**
  * \brief Symbols layer.
