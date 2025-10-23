@@ -48,8 +48,8 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define ESC_NAV LT(LAYER_NAVIGATION, KC_ESC)
 #define SPC_NUM LT(LAYER_NUMERAL, KC_SPC)
 #define TAB_MED LT(LAYER_MEDIA, KC_TAB)
-#define ENT_SYM LT(LAYER_SYMBOLS, KC_ENT)
-#define BSP_FUN LT(LAYER_FUNCTION, KC_BSPC)
+#define ENT_FUN LT(LAYER_FUNCTION, KC_ENT)
+#define BSP_SYM LT(LAYER_SYMBOLS, KC_BSPC)
 #define _L_PTR(KC) LT(LAYER_POINTER, KC)
 
 #ifndef POINTING_DEVICE_ENABLE
@@ -75,7 +75,7 @@ static uint16_t auto_pointer_layer_timer = 0;
        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O, KC_SEMICOLON, \
        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,         KC_P, \
        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT,      KC_SLSH, \
-                      ESC_NAV, SPC_NUM, TAB_MED, ENT_SYM, BSP_FUN
+                      ESC_NAV, SPC_NUM, TAB_MED, ENT_FUN, BSP_SYM
 
 /** Convenience row shorthands. */
 #define _______________DEAD_HALF_ROW_______________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
@@ -138,7 +138,7 @@ static uint16_t auto_pointer_layer_timer = 0;
     _______________DEAD_HALF_ROW_______________, _______________DEAD_HALF_ROW_______________, \
     ______________HOME_ROW_GACS_L______________, KC_CAPS, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, \
     _______________DEAD_HALF_ROW_______________,  KC_INS, KC_HOME, KC_PGDN, KC_PGUP,  KC_END, \
-                      _______, XXXXXXX, XXXXXXX,  KC_ENT, KC_BSPC
+                      _______, _______, _______,  KC_ENT, KC_BSPC
 
 /**
  * \brief Numeral layout.
@@ -152,12 +152,12 @@ static uint16_t auto_pointer_layer_timer = 0;
 // q w < > t
 // ; % + * g
 // ^ ~ - = b
-// note(jacob): Added ent and bspc keys for nicer time with numeral layer :)
+// note(jacob): Added ent and bspc keys for nicer time with numeral layer
 #define LAYOUT_LAYER_NUMERAL                                                                  \
-    _______, _______, KC_LABK, KC_RABK, _______,  KC_GRV,    KC_1,    KC_2,    KC_3,  KC_EQL, \
-    KC_SCLN, KC_PERC, KC_PLUS, KC_ASTR, _______, KC_PIPE,    KC_4,    KC_5,    KC_6,    KC_0, \
-    KC_CIRC, KC_TILD, KC_MINS,  KC_EQL, _______,  KC_GRV,    KC_7,    KC_8,    KC_9, KC_CIRC, \
-                       _______, _______, _______, KC_ENT, KC_BSPC
+    _______, _______, KC_LABK, KC_RABK,  _______,  KC_GRV,    KC_1,    KC_2,    KC_3,  KC_EQL, \
+    KC_SCLN, KC_PERC, KC_PLUS, KC_ASTR,  _______, KC_PIPE,    KC_4,    KC_5,    KC_6,    KC_0, \
+    KC_CIRC, KC_TILD, KC_MINS,  KC_EQL,  _______,  KC_GRV,    KC_7,    KC_8,    KC_9, KC_CIRC, \
+                       XXXXXXX, _______, XXXXXXX,  KC_ENT, KC_BSPC
 
 /**
  * \brief Symbols layer.
@@ -174,7 +174,7 @@ static uint16_t auto_pointer_layer_timer = 0;
     _______,  KC_BSLS, KC_QUOT, KC_DQUO, _______, _______________DEAD_HALF_ROW_______________, \
     KC_SCLN,  KC_LBRC, KC_LPRN, KC_LCBR, KC_LABK, _______,   KC_AT, KC_UNDS, KC_COLN,  KC_DLR, \
      KC_GRV,  KC_RBRC, KC_RPRN, KC_RCBR, KC_RABK, _______, _______, KC_COMM, KC_DOT, KC_HASH, \
-                      KC_EXLM, KC_PERC, KC_UNDS,  _______, XXXXXXX
+                      KC_EXLM, KC_PERC, KC_UNDS,  XXXXXXX, _______
 
 /**
  * \brief Add Home Row mod to a layout.
