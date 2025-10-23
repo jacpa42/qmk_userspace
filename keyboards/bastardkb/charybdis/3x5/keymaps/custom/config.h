@@ -37,5 +37,5 @@
 
 // note(jacob): Some stuff to make fast typing a bit better
 #define TAPPING_TERM 160
-#define QUICK_TAP_TERM 0
+#define QUICK_TAP_TERM 120
 #define PERMISSIVE_HOLD
