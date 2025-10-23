@@ -2,7 +2,10 @@
 
 MOUNT_POINT="/mnt/usb"
 DEVICE="/dev/sda1"
-firmware="/home/jacob/Downloads/bastardkb_charybdis_3x5_custom.uf2"
+firmware="/tmp/bastardkb_charybdis_3x5_custom.uf2"
+
+wget -P "/tmp" "https://github.com/jacpa42/qmk_userspace/releases/download/latest/bastardkb_charybdis_3x5_custom.uf2" || exit 1
+
 [[ -f "$firmware" ]] || {
     echo "no firware file found at $firmware"
     exit 1
