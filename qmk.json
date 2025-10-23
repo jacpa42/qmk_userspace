@@ -3,10 +3,6 @@
     "build_targets": [
         [
             "bastardkb/charybdis/3x5",
-            "vendor"
-        ],
-        [
-            "bastardkb/charybdis/3x5",
             "custom"
         ]
     ]
