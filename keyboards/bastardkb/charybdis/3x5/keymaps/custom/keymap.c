@@ -45,14 +45,23 @@ static uint16_t auto_pointer_layer_timer = 0;
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
-#define ESC_MED LT(LAYER_MEDIA, KC_ESC)
-#define SPC_NAV LT(LAYER_NAVIGATION, KC_SPC)
-#define TAB_NUM LT(LAYER_NUMERAL, KC_TAB)
+#define ESC_NAV LT(LAYER_NAVIGATION, KC_ESC)
+#define SPC_NUM LT(LAYER_NUMERAL, KC_SPC)
+#define TAB_MED LT(LAYER_MEDIA, KC_TAB)
 #define ENT_SYM LT(LAYER_SYMBOLS, KC_ENT)
 #define BSP_FUN LT(LAYER_FUNCTION, KC_BSPC)
 #define _L_PTR(KC) LT(LAYER_POINTER, KC)
 
 #ifndef POINTING_DEVICE_ENABLE
+
+// note(jacob): The base dpi I've left unchanged but just added for posterity
+#define CHARYBDIS_MINIMUM_DEFAULT_DPI 400
+#define CHARYBDIS_DEFAULT_DPI_CONFIG_STEP 200
+
+// note(jacob): I've halved the sniping dpi cause of fat fingers :(
+#define CHARYBDIS_MINIMUM_SNIPING_DPI 100
+#define CHARYBDIS_SNIPING_DPI_CONFIG_STEP 50
+
 #define DRGSCRL KC_NO
 #define DPI_MOD KC_NO
 #define S_D_MOD KC_NO
@@ -66,7 +75,7 @@ static uint16_t auto_pointer_layer_timer = 0;
        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O, KC_SEMICOLON, \
        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,         KC_P, \
        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT,      KC_SLSH, \
-                      ESC_MED, SPC_NAV, TAB_NUM, ENT_SYM, BSP_FUN
+                      ESC_NAV, SPC_NUM, TAB_MED, ENT_SYM, BSP_FUN
 
 /** Convenience row shorthands. */
 #define _______________DEAD_HALF_ROW_______________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
@@ -95,7 +104,7 @@ static uint16_t auto_pointer_layer_timer = 0;
     _______________DEAD_HALF_ROW_______________, KC_PSCR,   KC_F7,   KC_F8,   KC_F9,  KC_F12, \
     ______________HOME_ROW_GACS_L______________, KC_SCRL,   KC_F4,   KC_F5,   KC_F6,  KC_F11, \
     _______________DEAD_HALF_ROW_______________, KC_PAUS,   KC_F1,   KC_F2,   KC_F3,  KC_F10, \
-                      XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX
+                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______
 
 /**
  * \brief Media layer.
@@ -108,7 +117,7 @@ static uint16_t auto_pointer_layer_timer = 0;
     _______________DEAD_HALF_ROW_______________, _______________DEAD_HALF_ROW_______________, \
     KC_MPRV, KC_VOLD, KC_MUTE, KC_VOLU, KC_MNXT, KC_MPRV, KC_VOLD, KC_MUTE, KC_VOLU, KC_MNXT, \
     XXXXXXX, XXXXXXX, XXXXXXX,  EE_CLR, QK_BOOT, QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, \
-                      _______, KC_MPLY, KC_MSTP, KC_MSTP, KC_MPLY
+                      KC_MSTP, KC_MPLY, _______, KC_MSTP, KC_MPLY
 
 /** \brief Mouse emulation and pointer functions. */
 #define LAYOUT_LAYER_POINTER                                                                  \
@@ -129,7 +138,7 @@ static uint16_t auto_pointer_layer_timer = 0;
     _______________DEAD_HALF_ROW_______________, _______________DEAD_HALF_ROW_______________, \
     ______________HOME_ROW_GACS_L______________, KC_CAPS, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, \
     _______________DEAD_HALF_ROW_______________,  KC_INS, KC_HOME, KC_PGDN, KC_PGUP,  KC_END, \
-                      XXXXXXX, _______, XXXXXXX,  KC_ENT, KC_BSPC
+                      _______, XXXXXXX, XXXXXXX,  KC_ENT, KC_BSPC
 
 /**
  * \brief Numeral layout.
@@ -139,11 +148,16 @@ static uint16_t auto_pointer_layer_timer = 0;
  * `KC_DOT` is duplicated from the base layer.
  */
 // note(jacob): switched to right hand to preserve muscle memory
+// note(jacob): Added left symbols for common maths stuff
+// q w < > t
+// ; % + * g
+// ^ ~ - = b
+// note(jacob): Added ent and bspc keys for nicer time with numeral layer :)
 #define LAYOUT_LAYER_NUMERAL                                                                  \
-    _______________DEAD_HALF_ROW_______________, KC_GRV,     KC_1,    KC_2,    KC_3,  KC_EQL, \
-    ______________HOME_ROW_GACS_L______________, KC_PIPE,    KC_4,    KC_5,    KC_6,    KC_0, \
-    _______________DEAD_HALF_ROW_______________,  KC_GRV,    KC_7,    KC_8,    KC_9, KC_CIRC, \
-                       _______, _______, _______, KC_DOT, KC_COMM
+    _______, _______, KC_LABK, KC_RABK, _______,  KC_GRV,    KC_1,    KC_2,    KC_3,  KC_EQL, \
+    KC_SCLN, KC_PERC, KC_PLUS, KC_ASTR, _______, KC_PIPE,    KC_4,    KC_5,    KC_6,    KC_0, \
+    KC_CIRC, KC_TILD, KC_MINS,  KC_EQL, _______,  KC_GRV,    KC_7,    KC_8,    KC_9, KC_CIRC, \
+                       _______, _______, _______, KC_ENT, KC_BSPC
 
 /**
  * \brief Symbols layer.
