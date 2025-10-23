@@ -48,24 +48,24 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define ESC_NAV LT(LAYER_NAVIGATION, KC_ESC)
 #define SPC_NUM LT(LAYER_NUMERAL, KC_SPC)
 #define TAB_MED LT(LAYER_MEDIA, KC_TAB)
-#define ENT_FUN LT(LAYER_FUNCTION, KC_ENT)
-#define BSP_SYM LT(LAYER_SYMBOLS, KC_BSPC)
+#define ENT_SYM LT(LAYER_SYMBOLS, KC_ENT)
+#define BSP_FUN LT(LAYER_FUNCTION, KC_BSPC)
 #define _L_PTR(KC) LT(LAYER_POINTER, KC)
 
 #ifndef POINTING_DEVICE_ENABLE
-
-// note(jacob): The base dpi I've left unchanged but just added for posterity
-#define CHARYBDIS_MINIMUM_DEFAULT_DPI 400
-#define CHARYBDIS_DEFAULT_DPI_CONFIG_STEP 200
-
-// note(jacob): I've halved the sniping dpi cause of fat fingers :(
-#define CHARYBDIS_MINIMUM_SNIPING_DPI 100
-#define CHARYBDIS_SNIPING_DPI_CONFIG_STEP 50
 
 #define DRGSCRL KC_NO
 #define DPI_MOD KC_NO
 #define S_D_MOD KC_NO
 #define SNIPING KC_NO
+
+#else
+// note(jacob): The base dpi I've left unchanged but just added for posterity
+#define CHARYBDIS_MINIMUM_DEFAULT_DPI 400
+#define CHARYBDIS_DEFAULT_DPI_CONFIG_STEP 200
+// note(jacob): I've halved the sniping dpi cause of fat fingers :(
+#define CHARYBDIS_MINIMUM_SNIPING_DPI 100
+#define CHARYBDIS_SNIPING_DPI_CONFIG_STEP 50
 #endif // !POINTING_DEVICE_ENABLE
 
 // clang-format off
@@ -75,7 +75,7 @@ static uint16_t auto_pointer_layer_timer = 0;
        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O, KC_SEMICOLON, \
        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,         KC_P, \
        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT,      KC_SLSH, \
-                      ESC_NAV, SPC_NUM, TAB_MED, ENT_FUN, BSP_SYM
+                      ESC_NAV, SPC_NUM, TAB_MED, BSP_FUN, ENT_SYM
 
 /** Convenience row shorthands. */
 #define _______________DEAD_HALF_ROW_______________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
@@ -115,7 +115,7 @@ static uint16_t auto_pointer_layer_timer = 0;
 // note(jacob): Removed the rgb toggle stuff
 #define LAYOUT_LAYER_MEDIA                                                                    \
     _______________DEAD_HALF_ROW_______________, _______________DEAD_HALF_ROW_______________, \
-    KC_MPRV, KC_VOLD, KC_MUTE, KC_VOLU, KC_MNXT, KC_MPRV, KC_VOLD, KC_MUTE, KC_VOLU, KC_MNXT, \
+    XXXXXXX, KC_MUTE, KC_VOLD, KC_MPRV, XXXXXXX, XXXXXXX, KC_MNXT, KC_VOLU, KC_MUTE, XXXXXXX, \
     XXXXXXX, XXXXXXX, XXXXXXX,  EE_CLR, QK_BOOT, QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, \
                       KC_MSTP, KC_MPLY, _______, KC_MSTP, KC_MPLY
 
@@ -154,10 +154,10 @@ static uint16_t auto_pointer_layer_timer = 0;
 // ^ ~ - = b
 // note(jacob): Added ent and bspc keys for nicer time with numeral layer
 #define LAYOUT_LAYER_NUMERAL                                                                  \
-    _______, _______, KC_LABK, KC_RABK,  _______,  KC_GRV,    KC_1,    KC_2,    KC_3,  KC_EQL, \
-    KC_SCLN, KC_PERC, KC_PLUS, KC_ASTR,  _______, KC_PIPE,    KC_4,    KC_5,    KC_6,    KC_0, \
-    KC_CIRC, KC_TILD, KC_MINS,  KC_EQL,  _______,  KC_GRV,    KC_7,    KC_8,    KC_9, KC_CIRC, \
-                       XXXXXXX, _______, XXXXXXX,  KC_ENT, KC_BSPC
+    _______, _______, KC_LABK, KC_RABK,  _______,  KC_AMPR,   KC_1,    KC_2,    KC_3,  KC_EQL, \
+    KC_SCLN, KC_PERC, KC_PLUS, KC_ASTR,  _______,  KC_PIPE,   KC_4,    KC_5,    KC_6,    KC_0, \
+    KC_CIRC, KC_TILD, KC_MINS,  KC_EQL,  _______,   KC_GRV,   KC_7,    KC_8,    KC_9, KC_CIRC, \
+                       XXXXXXX, _______, XXXXXXX,   KC_ENT, KC_BSPC
 
 /**
  * \brief Symbols layer.
@@ -274,9 +274,3 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 }
 #endif // CHARYBDIS_AUTO_SNIPING_ON_LAYER
 #endif // POINTING_DEVICE_ENABLE
-
-#ifdef RGB_MATRIX_ENABLE
-// Forward-declare this helper function since it is defined in
-// rgb_matrix.c.
-void rgb_matrix_update_pwm_buffers(void);
-#endif

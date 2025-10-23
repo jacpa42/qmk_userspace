@@ -34,3 +34,8 @@
 // - `CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD`
 // #define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 #endif // POINTING_DEVICE_ENABLE
+
+// note(jacob): Some stuff to make fast typing a bit better
+#define TAPPING_TERM 160
+#define QUICK_TAP_TERM 0
+#define PERMISSIVE_HOLD
