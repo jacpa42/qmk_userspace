@@ -2,10 +2,11 @@
 
 MOUNT_POINT="/mnt/usb"
 DEVICE="/dev/sda1"
-firmware_zip="$HOME/Downloads/Firmware.zip"
-firmware="$HOME/Downloads/$(unzip -Z1 "$firmware_zip")"
-
-(unzip -o "$firmware_zip" >/dev/null) || exit 1
+firmware="/home/jacob/Downloads/bastardkb_charybdis_3x5_custom.uf2"
+[[ -f "$firmware" ]] || {
+    echo "no firware file found at $firmware"
+    exit 1
+}
 echo "using firmware file: $firmware"
 
 echo "Watching for $DEVICE..."
