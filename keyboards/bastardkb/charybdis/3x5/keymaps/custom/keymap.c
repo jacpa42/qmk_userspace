@@ -95,7 +95,7 @@ static uint16_t auto_pointer_layer_timer = 0;
     _______________DEAD_HALF_ROW_______________, KC_PSCR,   KC_F7,   KC_F8,   KC_F9,  KC_F12, \
     ______________HOME_ROW_GACS_L______________, KC_SCRL,   KC_F4,   KC_F5,   KC_F6,  KC_F11, \
     _______________DEAD_HALF_ROW_______________, KC_PAUS,   KC_F1,   KC_F2,   KC_F3,  KC_F10, \
-                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______
+                      XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX
 
 /**
  * \brief Media layer.
@@ -108,7 +108,7 @@ static uint16_t auto_pointer_layer_timer = 0;
     _______________DEAD_HALF_ROW_______________, _______________DEAD_HALF_ROW_______________, \
     XXXXXXX, KC_MUTE, KC_VOLD, KC_MPRV, XXXXXXX, XXXXXXX, KC_MNXT, KC_VOLU, KC_MUTE, XXXXXXX, \
     XXXXXXX, XXXXXXX, XXXXXXX,  EE_CLR, QK_BOOT, QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, \
-                      KC_MSTP, KC_MPLY, _______, KC_MSTP, KC_MPLY
+                      XXXXXXX, XXXXXXX, _______, KC_MSTP, KC_MPLY
 
 /** \brief Mouse emulation and pointer functions. */
 #define LAYOUT_LAYER_POINTER                                                                  \
@@ -129,7 +129,7 @@ static uint16_t auto_pointer_layer_timer = 0;
     _______________DEAD_HALF_ROW_______________, _______________DEAD_HALF_ROW_______________, \
     ______________HOME_ROW_GACS_L______________,  KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, \
     _______________DEAD_HALF_ROW_______________,  KC_INS,  KC_HOME, KC_PGDN, KC_PGUP,  KC_END, \
-                      _______, _______, _______,  KC_ENT, KC_BSPC
+                      _______, XXXXXXX, XXXXXXX,  KC_ENT, KC_BSPC
 
 /**
  * \brief Numeral layout.
@@ -140,12 +140,12 @@ static uint16_t auto_pointer_layer_timer = 0;
  */
 // note(jacob): switched to right hand to preserve muscle memory
 // note(jacob): Added left symbols for common maths stuff
-// q w < > t
+// q & < > t
 // ; % + * g
 // ^ ~ - = b
 // note(jacob): Added ent and bspc keys for nicer time with numeral layer
 #define LAYOUT_LAYER_NUMERAL                                                                  \
-    _______, _______, KC_LABK, KC_RABK,  _______, KC_AMPR, KC_1,  KC_2,  KC_3,  KC_EQL, \
+    _______, KC_AMPR, KC_LABK, KC_RABK,  _______, KC_AMPR, KC_1,  KC_2,  KC_3,  KC_EQL, \
     KC_SCLN, KC_PERC, KC_PLUS, KC_ASTR,  _______, KC_PIPE, KC_4,  KC_5,  KC_6,  KC_0, \
     KC_CIRC, KC_TILD, KC_MINS,  KC_EQL,  _______,  KC_GRV, KC_7,  KC_8,  KC_9,  KC_CIRC, \
                        XXXXXXX, _______, XXXXXXX,  KC_ENT, KC_BSPC
