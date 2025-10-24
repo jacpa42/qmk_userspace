@@ -3,16 +3,14 @@
 MOUNT_POINT="/mnt/usb"
 DEVICE="/dev/sda1"
 firmware="/tmp/bastardkb_charybdis_3x5_custom.uf2"
-
-wget -P "/tmp" "https://github.com/jacpa42/qmk_userspace/releases/download/latest/bastardkb_charybdis_3x5_custom.uf2" || exit 1
+wget -O "$firmware" "https://github.com/jacpa42/qmk_userspace/releases/download/latest/bastardkb_charybdis_3x5_custom.uf2" || exit 1
 
 [[ -f "$firmware" ]] || {
-    echo "no firware file found at $firmware"
+    echo "no firware file found at $firmware. exiting"
     exit 1
-}
-echo "using firmware file: $firmware"
+} && echo "using firmware file: $firmware"
 
-echo "Watching for $DEVICE..."
+echo "Waiting for $DEVICE..."
 
 while true; do
     # Wait until the device appears
