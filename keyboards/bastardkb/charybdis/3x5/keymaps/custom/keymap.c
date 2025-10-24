@@ -22,6 +22,7 @@
 
 enum charybdis_keymap_layers {
   LAYER_BASE = 0,
+  LAYER_FUNCTION,
   LAYER_NAVIGATION,
   LAYER_MEDIA,
   LAYER_POINTER,
@@ -44,6 +45,7 @@ static uint16_t auto_pointer_layer_timer = 0;
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
+#define LT_FUN(key) LT(LAYER_FUNCTION, KC_##key)
 #define LT_NAV(key) LT(LAYER_NAVIGATION, KC_##key)
 #define LT_MED(key) LT(LAYER_MEDIA, KC_##key)
 #define LT_NUM(key) LT(LAYER_NUMERAL, KC_##key)
@@ -80,6 +82,20 @@ static uint16_t auto_pointer_layer_timer = 0;
  *
  * See https://github.com/manna-harbour/miryoku for the original layout.
  */
+
+/**
+ * \brief Function layer.
+ *
+ * Secondary right-hand layer has function keys mirroring the numerals on the
+ * primary layer with extras on the pinkie column, plus system keys on the inner
+ * column. App is on the tertiary thumb key and other thumb keys are duplicated
+ * from the base layer to enable auto-repeat.
+ */
+#define LAYOUT_LAYER_FUNCTION                                                                 \
+    _______________DEAD_HALF_ROW_______________, KC_PSCR,   KC_F7,   KC_F8,   KC_F9,  KC_F12, \
+    ______________HOME_ROW_GACS_L______________, KC_SCRL,   KC_F4,   KC_F5,   KC_F6,  KC_F11, \
+    _______________DEAD_HALF_ROW_______________, KC_PAUS,   KC_F1,   KC_F2,   KC_F3,  KC_F10, \
+                      XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX
 
 /**
  * \brief Media layer.
@@ -202,6 +218,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT_wrapper(
     POINTER_MOD(HOME_ROW_MOD_GACS(LAYOUT_LAYER_BASE))
   ),
+  [LAYER_FUNCTION] = LAYOUT_wrapper(LAYOUT_LAYER_FUNCTION),
   [LAYER_NAVIGATION] = LAYOUT_wrapper(LAYOUT_LAYER_NAVIGATION),
   [LAYER_MEDIA] = LAYOUT_wrapper(LAYOUT_LAYER_MEDIA),
   [LAYER_NUMERAL] = LAYOUT_wrapper(LAYOUT_LAYER_NUMERAL),
