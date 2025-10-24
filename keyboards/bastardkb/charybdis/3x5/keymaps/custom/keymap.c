@@ -22,7 +22,6 @@
 
 enum charybdis_keymap_layers {
   LAYER_BASE = 0,
-  LAYER_FUNCTION,
   LAYER_NAVIGATION,
   LAYER_MEDIA,
   LAYER_POINTER,
@@ -45,7 +44,6 @@ static uint16_t auto_pointer_layer_timer = 0;
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
-#define LT_FUN(key) LT(LAYER_FUNCTION, KC_##key)
 #define LT_NAV(key) LT(LAYER_NAVIGATION, KC_##key)
 #define LT_MED(key) LT(LAYER_MEDIA, KC_##key)
 #define LT_NUM(key) LT(LAYER_NUMERAL, KC_##key)
@@ -66,7 +64,7 @@ static uint16_t auto_pointer_layer_timer = 0;
        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,  KC_AMPR, \
        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,     KC_P, \
        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT,  KC_SLSH, \
-        LT_NAV(ESC), KC_SPC, LT_NUM(TAB),              LT_MED(ENT), LT_SYM(BSPC)
+        LT_NAV(ESC), KC_SPACE, LT_NUM(TAB),              LT_MED(ENT), LT_SYM(BSPC)
 
 /** Convenience row shorthands. */
 #define _______________DEAD_HALF_ROW_______________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
@@ -77,25 +75,11 @@ static uint16_t auto_pointer_layer_timer = 0;
  * Layers used on the Charybdis Nano.
  *
  * These layers started off heavily inspired by the Miryoku layout, but trimmed
- * down and tailored for a stock experience that is meant to be fundation for
+ * down and tailored for a stock experience that is meant to be foundation for
  * further personalization.
  *
  * See https://github.com/manna-harbour/miryoku for the original layout.
  */
-
-/**
- * \brief Function layer.
- *
- * Secondary right-hand layer has function keys mirroring the numerals on the
- * primary layer with extras on the pinkie column, plus system keys on the inner
- * column. App is on the tertiary thumb key and other thumb keys are duplicated
- * from the base layer to enable auto-repeat.
- */
-#define LAYOUT_LAYER_FUNCTION                                                                 \
-    _______________DEAD_HALF_ROW_______________, KC_PSCR,   KC_F7,   KC_F8,   KC_F9,  KC_F12, \
-    ______________HOME_ROW_GACS_L______________, KC_SCRL,   KC_F4,   KC_F5,   KC_F6,  KC_F11, \
-    _______________DEAD_HALF_ROW_______________, KC_PAUS,   KC_F1,   KC_F2,   KC_F3,  KC_F10, \
-                      XXXXXXX, XXXXXXX, XXXXXXX, _______, XXXXXXX
 
 /**
  * \brief Media layer.
@@ -108,7 +92,7 @@ static uint16_t auto_pointer_layer_timer = 0;
     _______________DEAD_HALF_ROW_______________, _______________DEAD_HALF_ROW_______________, \
     XXXXXXX, KC_MUTE, KC_VOLD, KC_MPRV, XXXXXXX, XXXXXXX, KC_MNXT, KC_VOLU, KC_MUTE, XXXXXXX, \
     XXXXXXX, XXXXXXX, XXXXXXX,  EE_CLR, QK_BOOT, QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, \
-                      XXXXXXX, KC_MPLY, , _______, XXXXXXX
+                      XXXXXXX, KC_MPLY, XXXXXXX, _______, XXXXXXX
 
 /** \brief Mouse emulation and pointer functions. */
 #define LAYOUT_LAYER_POINTER                                                                  \
@@ -218,7 +202,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT_wrapper(
     POINTER_MOD(HOME_ROW_MOD_GACS(LAYOUT_LAYER_BASE))
   ),
-  [LAYER_FUNCTION] = LAYOUT_wrapper(LAYOUT_LAYER_FUNCTION),
   [LAYER_NAVIGATION] = LAYOUT_wrapper(LAYOUT_LAYER_NAVIGATION),
   [LAYER_MEDIA] = LAYOUT_wrapper(LAYOUT_LAYER_MEDIA),
   [LAYER_NUMERAL] = LAYOUT_wrapper(LAYOUT_LAYER_NUMERAL),
