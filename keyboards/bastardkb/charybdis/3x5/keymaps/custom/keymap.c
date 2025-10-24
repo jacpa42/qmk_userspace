@@ -53,19 +53,10 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define _L_PTR(KC) LT(LAYER_POINTER, KC)
 
 #ifndef POINTING_DEVICE_ENABLE
-
 #define DRGSCRL KC_NO
 #define DPI_MOD KC_NO
 #define S_D_MOD KC_NO
 #define SNIPING KC_NO
-
-#else
-// note(jacob): The base dpi I've left unchanged but just added for posterity
-#define CHARYBDIS_MINIMUM_DEFAULT_DPI 400
-#define CHARYBDIS_DEFAULT_DPI_CONFIG_STEP 200
-// note(jacob): I've halved the sniping dpi cause of fat fingers :(
-#define CHARYBDIS_MINIMUM_SNIPING_DPI 100
-#define CHARYBDIS_SNIPING_DPI_CONFIG_STEP 50
 #endif // !POINTING_DEVICE_ENABLE
 
 // clang-format off

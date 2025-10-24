@@ -39,3 +39,10 @@
 #define TAPPING_TERM 200
 #define QUICK_TAP_TERM 120
 #define PERMISSIVE_HOLD
+
+// note(jacob): The base dpi I've left unchanged but just added for posterity
+#define CHARYBDIS_MINIMUM_DEFAULT_DPI 400
+#define CHARYBDIS_DEFAULT_DPI_CONFIG_STEP 200
+// note(jacob): I've halved the sniping dpi cause of fat fingers :(
+#define CHARYBDIS_MINIMUM_SNIPING_DPI 100
+#define CHARYBDIS_SNIPING_DPI_CONFIG_STEP 50
