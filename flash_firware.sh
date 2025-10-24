@@ -34,7 +34,7 @@ while true; do
     ls -A "$MOUNT_POINT"
     echo "Waiting for device removal..."
 
-    sleep 2
+    sleep 15
 
     while [ "$(ls -A "$MOUNT_POINT" 2>/dev/null | wc -l)" -ne 0 ]; do
         echo "Device has not rebooted yet..."
