@@ -64,7 +64,7 @@ static uint16_t auto_pointer_layer_timer = 0;
        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,  KC_AMPR, \
        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,     KC_P, \
        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT,  KC_SLSH, \
-        LT_NAV(ESC), KC_SPACE, LT_NUM(TAB),              LT_MED(ENT), LT_SYM(BSPC)
+        LT_NAV(ESC), LT_NUM(SPC), LT_FUN(TAB),              LT_MED(ENT), LT_SYM(BSPC)
 
 /** Convenience row shorthands. */
 #define _______________DEAD_HALF_ROW_______________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
@@ -80,6 +80,20 @@ static uint16_t auto_pointer_layer_timer = 0;
  *
  * See https://github.com/manna-harbour/miryoku for the original layout.
  */
+
+/**
+ * \brief Function layer.
+ *
+ * Secondary right-hand layer has function keys mirroring the numerals on the
+ * primary layer with extras on the pinkie column, plus system keys on the inner
+ * column. App is on the tertiary thumb key and other thumb keys are duplicated
+ * from the base layer to enable auto-repeat.
+ */
+#define LAYOUT_LAYER_FUNCTION                                                                 \
+    _______________DEAD_HALF_ROW_______________, KC_PSCR,   KC_F7,   KC_F8,   KC_F9,  KC_F12, \
+    ______________HOME_ROW_GACS_L______________, KC_SCRL,   KC_F4,   KC_F5,   KC_F6,  KC_F11, \
+    _______________DEAD_HALF_ROW_______________, KC_PAUS,   KC_F1,   KC_F2,   KC_F3,  KC_F10, \
+                      XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX
 
 /**
  * \brief Media layer.
