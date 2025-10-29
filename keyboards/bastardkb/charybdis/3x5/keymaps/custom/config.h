@@ -36,9 +36,13 @@
 #endif // POINTING_DEVICE_ENABLE
 
 // note(jacob): Some stuff to make fast typing a bit better
-#define TAPPING_TERM 200
-#define QUICK_TAP_TERM 120
-#define PERMISSIVE_HOLD
+#define TAPPING_TERM 160
+#define QUICK_TAP_TERM 100
+
+// note(jacob): Trying to disable both with a TAPPING_TERM of 160 to see if this makes typing easier.
+// I keep making mistakes and it is pissing me off.
+#undef PERMISSIVE_HOLD
+#undef HOLD_ON_OTHER_KEY_PRESS
 
 // note(jacob): The base dpi I've left unchanged but just added for posterity
 #define CHARYBDIS_MINIMUM_DEFAULT_DPI 400
