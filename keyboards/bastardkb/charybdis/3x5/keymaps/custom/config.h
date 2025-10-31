@@ -36,7 +36,7 @@
 #endif // POINTING_DEVICE_ENABLE
 
 // note(jacob): Some stuff to make fast typing a bit better
-#define TAPPING_TERM 160
+#define TAPPING_TERM 150
 #define QUICK_TAP_TERM 100
 
 // note(jacob): Trying to disable both with a TAPPING_TERM of 160 to see if this makes typing easier.
