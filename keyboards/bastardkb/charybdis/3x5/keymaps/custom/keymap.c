@@ -64,7 +64,7 @@ static uint16_t auto_pointer_layer_timer = 0;
        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,  KC_EXLM, \
        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,     KC_P, \
        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT,  KC_SLSH, \
-        LT_NAV(ESC),  KC_SPC, LT_NUM(TAB),             LT_MED(ENT), LT_SYM(BSPC)
+        KC_ESC,  LT_NUM(KC_SPC), LT_NAV(TAB),             LT_MED(ENT), LT_SYM(BSPC)
 
 /** Convenience row shorthands. */
 #define _______________DEAD_HALF_ROW_______________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
@@ -103,7 +103,7 @@ static uint16_t auto_pointer_layer_timer = 0;
     _______________DEAD_HALF_ROW_______________, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   \
     ______________HOME_ROW_GACS_L______________, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, \
     _______________DEAD_HALF_ROW_______________, KC_INS,  KC_HOME, KC_PGDN, KC_PGUP,  KC_END, \
-                      _______, XXXXXXX, XXXXXXX, KC_ENT, KC_BSPC
+                      XXXXXXX, XXXXXXX, _______, KC_ENT, KC_BSPC
 
 /**
  * \brief Media layer.
@@ -135,7 +135,7 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define LAYOUT_LAYER_NUMERAL                                                                  \
     _______, KC_AMPR, KC_LABK, KC_RABK,  _______, KC_AMPR, KC_1,  KC_2,  KC_3,  KC_EQL, \
     KC_SCLN, KC_PERC, KC_PLUS, KC_ASTR,  _______, KC_PIPE, KC_4,  KC_5,  KC_6,  KC_0, \
-    KC_CIRC, KC_TILD, KC_MINS,  KC_EQL,  _______,  KC_GRV, KC_7,  KC_8,  KC_9,  KC_CIRC, \
+    KC_CIRC, KC_TILD, KC_MINS,  KC_EQL,  KC_EXLM,  KC_GRV, KC_7,  KC_8,  KC_9,  KC_CIRC, \
                        XXXXXXX, _______, XXXXXXX,  KC_ENT, KC_BSPC
 
 /**
