@@ -61,7 +61,7 @@ static uint16_t auto_pointer_layer_timer = 0;
 /** \brief QWERTY layout (3 rows, 10 columns). */
 // NOTE: I changed p to be 1 layer down and to include semi-colon above p
 #define LAYOUT_LAYER_BASE                                                                          \
-       KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,  KC_AMPR, \
+       KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,  KC_EXLM, \
        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,     KC_P, \
        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT,  KC_SLSH, \
         LT_NAV(ESC), LT_NUM(TAB), KC_SPC,              LT_MED(ENT), LT_SYM(BSPC)
@@ -150,9 +150,9 @@ static uint16_t auto_pointer_layer_timer = 0;
 // ; [ ( { g   h @ _ : $
 // ` ] ) } b   n m , . #
 #define LAYOUT_LAYER_SYMBOLS                                                                  \
-    _______,  KC_BSLS, KC_QUOT, KC_DQUO, _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5, \
+    _______,  KC_BSLS, KC_QUOT, KC_DQUO, _______, _______________DEAD_HALF_ROW_______________, \
     KC_SCLN,  KC_LBRC, KC_LPRN, KC_LCBR, KC_LABK, _______,   KC_AT, KC_UNDS, KC_COLN,  KC_DLR, \
-     KC_GRV,  KC_RBRC, KC_RPRN, KC_RCBR, KC_RABK, _______, _______, KC_COMM, KC_DOT, KC_HASH, \
+     KC_GRV,  KC_RBRC, KC_RPRN, KC_RCBR, KC_RABK, _______, _______, KC_COMM,  KC_DOT, KC_HASH, \
                       KC_EXLM, KC_PERC, KC_UNDS,  XXXXXXX, _______
 
 /**
