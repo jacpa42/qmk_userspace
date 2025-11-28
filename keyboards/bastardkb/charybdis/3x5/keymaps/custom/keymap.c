@@ -153,7 +153,7 @@ static uint16_t auto_pointer_layer_timer = 0;
     _______,  KC_BSLS, KC_QUOT, KC_DQUO, _______, _______________DEAD_HALF_ROW_______________, \
     KC_SCLN,  KC_LBRC, KC_LPRN, KC_LCBR, KC_LABK, _______,   KC_AT, KC_UNDS, KC_COLN,  KC_DLR, \
      KC_GRV,  KC_RBRC, KC_RPRN, KC_RCBR, KC_RABK, _______, _______, KC_COMM,  KC_DOT, KC_HASH, \
-                      KC_EXLM, KC_PERC, KC_UNDS,  XXXXXXX, _______
+                      _______, KC_PERC, KC_UNDS,  XXXXXXX, _______
 
 /**
  * \brief Add Home Row mod to a layout.
