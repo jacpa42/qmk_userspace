@@ -45,8 +45,8 @@ static uint16_t auto_pointer_layer_timer = 0;
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
 #define LT_NAV(key) LT(LAYER_NAVIGATION, KC_##key)
-#define LT_MED(key) LT(LAYER_MEDIA, KC_##key)
 #define LT_NUM(key) LT(LAYER_NUMERAL, KC_##key)
+#define LT_MED(key) LT(LAYER_MEDIA, KC_##key)
 #define LT_SYM(key) LT(LAYER_SYMBOLS, KC_##key)
 #define _L_PTR(KC) LT(LAYER_POINTER, KC)
 
@@ -59,7 +59,7 @@ static uint16_t auto_pointer_layer_timer = 0;
 
 // clang-format off
 /** \brief QWERTY layout (3 rows, 10 columns). */
-// note(jacob): I changed p to be 1 layer down and to include semi-colon above p
+// NOTE: I changed p to be 1 layer down and to include semi-colon above p
 #define LAYOUT_LAYER_BASE                                                                          \
        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,  KC_AMPR, \
        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,     KC_P, \
@@ -81,19 +81,6 @@ static uint16_t auto_pointer_layer_timer = 0;
  * See https://github.com/manna-harbour/miryoku for the original layout.
  */
 
-/**
- * \brief Media layer.
- *
- * Tertiary left- and right-hand layer is media and RGB control.  This layer is
- * symmetrical to accomodate the left- and right-hand trackball.
- */
-// note(jacob): Removed the rgb toggle stuff
-// note(jacob): Added function keys here.
-#define LAYOUT_LAYER_MEDIA                                                                    \
-    KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, \
-    XXXXXXX, KC_MUTE, KC_VOLD, KC_MPRV, XXXXXXX, XXXXXXX, KC_MNXT, KC_VOLU, KC_MUTE, XXXXXXX, \
-    XXXXXXX, XXXXXXX, XXXXXXX,  EE_CLR, QK_BOOT, QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, \
-                      XXXXXXX, KC_MPLY, XXXXXXX, _______, XXXXXXX
 
 /** \brief Mouse emulation and pointer functions. */
 #define LAYOUT_LAYER_POINTER                                                                  \
@@ -110,11 +97,27 @@ static uint16_t auto_pointer_layer_timer = 0;
  * caps lock and insert on the inner column. Thumb keys are duplicated from the
  * base layer to avoid having to layer change mid edit and to enable auto-repeat.
  */
+
+// NOTE: added
 #define LAYOUT_LAYER_NAVIGATION                                                               \
-    _______________DEAD_HALF_ROW_______________, _______________DEAD_HALF_ROW_______________, \
-    ______________HOME_ROW_GACS_L______________,  KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, \
-    _______________DEAD_HALF_ROW_______________,  KC_INS,  KC_HOME, KC_PGDN, KC_PGUP,  KC_END, \
-                      _______, XXXXXXX, XXXXXXX,  KC_ENT, KC_BSPC
+    _______________DEAD_HALF_ROW_______________, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   \
+    ______________HOME_ROW_GACS_L______________, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, \
+    _______________DEAD_HALF_ROW_______________, KC_INS,  KC_HOME, KC_PGDN, KC_PGUP,  KC_END, \
+                      _______, XXXXXXX, XXXXXXX, KC_ENT, KC_BSPC
+
+/**
+ * \brief Media layer.
+ *
+ * Tertiary left- and right-hand layer is media and RGB control.  This layer is
+ * symmetrical to accomodate the left- and right-hand trackball.
+ */
+// NOTE: Removed the rgb toggle stuff
+// NOTE: Added function keys here.
+#define LAYOUT_LAYER_MEDIA                                                                    \
+    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  \
+    XXXXXXX, KC_MUTE, KC_VOLD, KC_MPRV, XXXXXXX, XXXXXXX, KC_MNXT, KC_VOLU, KC_MUTE, XXXXXXX, \
+    XXXXXXX, XXXXXXX, XXXXXXX,  EE_CLR, QK_BOOT, QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, \
+                      XXXXXXX, KC_MPLY, XXXXXXX, _______, XXXXXXX
 
 /**
  * \brief Numeral layout.
@@ -123,12 +126,12 @@ static uint16_t auto_pointer_layer_timer = 0;
  * are in the standard numpad locations with symbols in the remaining positions.
  * `KC_DOT` is duplicated from the base layer.
  */
-// note(jacob): switched to right hand to preserve muscle memory
-// note(jacob): Added left symbols for common maths stuff
+// NOTE: switched to right hand to preserve muscle memory
+// NOTE: Added left symbols for common maths stuff
 // q & < > t
 // ; % + * g
 // ^ ~ - = b
-// note(jacob): Added ent and bspc keys for nicer time with numeral layer
+// NOTE: Added ent and bspc keys for nicer time with numeral layer
 #define LAYOUT_LAYER_NUMERAL                                                                  \
     _______, KC_AMPR, KC_LABK, KC_RABK,  _______, KC_AMPR, KC_1,  KC_2,  KC_3,  KC_EQL, \
     KC_SCLN, KC_PERC, KC_PLUS, KC_ASTR,  _______, KC_PIPE, KC_4,  KC_5,  KC_6,  KC_0, \
@@ -142,7 +145,7 @@ static uint16_t auto_pointer_layer_timer = 0;
  * chording when using mods with shifted symbols. `KC_LPRN` is duplicated next to
  * `KC_RPRN`.
  */
-// note(jacob): this is my symbols layer on the corne
+// NOTE: this is my symbols layer on the corne
 // q \ ' " t   <F1><F2><F3><F4><F5>
 // ; [ ( { g   h @ _ : $
 // ` ] ) } b   n m , . #
