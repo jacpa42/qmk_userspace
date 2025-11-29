@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+[ "$(whoami)" != "root" ] && echo -e "You must be root to run this script as I need access to mounted hardware on /dev/.\nPlease use \"sudo --user root ./flash_firware.sh\"" && exit 1
+
 MOUNT_POINT="/mnt/usb"
 DEVICE="/dev/sda1"
 firmware="/tmp/bastardkb_charybdis_3x5_custom.uf2"

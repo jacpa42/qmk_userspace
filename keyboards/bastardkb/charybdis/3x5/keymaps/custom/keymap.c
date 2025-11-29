@@ -22,6 +22,7 @@
 
 enum charybdis_keymap_layers {
   LAYER_BASE = 0,
+  LAYER_GAMING,
   LAYER_NAVIGATION,
   LAYER_MEDIA,
   LAYER_POINTER,
@@ -116,7 +117,7 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define LAYOUT_LAYER_MEDIA                                                                    \
     KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  \
     XXXXXXX, KC_MUTE, KC_VOLD, KC_MPRV, XXXXXXX, XXXXXXX, KC_MNXT, KC_VOLU, KC_MUTE, XXXXXXX, \
-    XXXXXXX, XXXXXXX, XXXXXXX,  EE_CLR, QK_BOOT, QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, \
+    DF(LAYER_GAMING), DF(LAYER_BASE), XXXXXXX,  EE_CLR, QK_BOOT, QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, \
                       KC_ESC, KC_MPLY, KC_TAB, _______, XXXXXXX
 
 /**
@@ -211,6 +212,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_NUMERAL] = LAYOUT_wrapper(LAYOUT_LAYER_NUMERAL),
   [LAYER_POINTER] = LAYOUT_wrapper(LAYOUT_LAYER_POINTER),
   [LAYER_SYMBOLS] = LAYOUT_wrapper(LAYOUT_LAYER_SYMBOLS),
+  [LAYER_GAMING] = LAYOUT_wrapper(POINTER_MOD(LAYOUT_LAYER_BASE)),
 };
 // clang-format on
 
