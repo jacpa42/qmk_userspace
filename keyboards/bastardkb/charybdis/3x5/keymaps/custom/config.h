@@ -39,14 +39,39 @@
 #define TAPPING_TERM 150
 #define QUICK_TAP_TERM 100
 
-// note(jacob): Trying to disable both with a TAPPING_TERM of 160 to see if this makes typing easier.
+// note(jacob): Trying to disable both with a TAPPING_TERM of 150 to see if this makes typing easier.
 // I keep making mistakes and it is pissing me off.
-#undef PERMISSIVE_HOLD
+#define PERMISSIVE_HOLD
 #undef HOLD_ON_OTHER_KEY_PRESS
 
 // note(jacob): The base dpi I've left unchanged but just added for posterity
-#define CHARYBDIS_MINIMUM_DEFAULT_DPI 400
+#define CHARYBDIS_MINIMUM_DEFAULT_DPI 600
 #define CHARYBDIS_DEFAULT_DPI_CONFIG_STEP 200
 // note(jacob): I've halved the sniping dpi cause of fat fingers :(
-#define CHARYBDIS_MINIMUM_SNIPING_DPI 150
+#define CHARYBDIS_MINIMUM_SNIPING_DPI 250
 #define CHARYBDIS_SNIPING_DPI_CONFIG_STEP 75
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
