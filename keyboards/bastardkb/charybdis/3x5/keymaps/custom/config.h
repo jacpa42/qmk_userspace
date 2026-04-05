@@ -39,9 +39,8 @@
 #define TAPPING_TERM 150
 #define QUICK_TAP_TERM 100
 
-// note(jacob): This sends the tap function for dual roles keys when it is
-// pressed within this window.
-#define FLOW_TAP_TERM 180
+// note(jacob): I type too fast for this to be good.
+#undef FLOW_TAP_TERM
 
 // note(jacob): Trying to disable both with a TAPPING_TERM of 150 to see if this makes typing easier.
 // I keep making mistakes and it is pissing me off.
